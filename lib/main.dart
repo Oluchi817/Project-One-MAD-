@@ -47,10 +47,10 @@ class FestivalPocketApp extends StatelessWidget {
         ),
 
         // White cards with light orange borders
-        cardTheme: CardTheme(
+        cardTheme: CardThemeData(
           color: Colors.white,
           elevation: 2,
-          shadowColor: Colors.orange.withOpacity(0.15),
+          shadowColor: Colors.orange.withValues(alpha: 0.15),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
             side: BorderSide(color: Colors.orange.shade100),
@@ -73,10 +73,10 @@ class _MainNavigationShellState extends State<MainNavigationShell> {
   int _currentIndex = 0;
 
   // Tabs: S1 (Marquez), S4 & S5 (Oluchi)
-  final List<Widget> _screens = const [
-    S1CatalogDashboardScreen(),
-    S4HistoryInsightsScreen(),
-    S5SettingsScreen(),
+  final List<Widget> _screens = [
+    const S1CatalogDashboardScreen(),
+    const S4HistoryInsightsScreen(),
+    const S5SettingsScreen(),
   ];
 
   @override

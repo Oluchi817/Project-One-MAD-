@@ -66,7 +66,7 @@ class _S2CreateEditEventScreenState extends State<S2CreateEditEventScreen> {
                 ),
                 items: ['Music', 'Tech', 'Art', 'Sports', 'Food'].map((t) {
                   return DropdownMenuItem(value: t, child: Text(t));
-                }).toList>,
+                }).toList(),
                 onChanged: (val) => setState(() => _selectedTag = val ?? 'Music'),
               ),
               const SizedBox(height: 16),
