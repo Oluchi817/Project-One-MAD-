@@ -1,34 +1,28 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:festival_pocket/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('App opens on the empty catalog', (WidgetTester tester) async {
+    await tester.pumpWidget(const FestivalPocketApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    expect(find.text('Festival Pocket'), findsOneWidget);
+    expect(find.text('No events yet. Add your first event.'), findsOneWidget);
+    expect(find.text('Add Event'), findsOneWidget);
+  });
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+  testWidgets('Saving an empty event form shows validation errors',
+      (WidgetTester tester) async {
+    await tester.pumpWidget(const FestivalPocketApp());
+
+    await tester.tap(find.text('Add Event'));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Save Event'));
     await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(find.text('Title must be 2 to 60 characters'), findsOneWidget);
+    expect(find.text('Pick a date'), findsOneWidget);
+    expect(find.text('Capacity must be a number from 1 to 500'), findsOneWidget);
   });
-}
-
-class MyApp {
-  const new();
 }

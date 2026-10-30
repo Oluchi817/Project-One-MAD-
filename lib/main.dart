@@ -7,7 +7,6 @@ import 'UI_screens/s4_history_insights.dart';
 import 'UI_screens/s5_settings.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
   runApp(const FestivalPocketApp());
 }
 
