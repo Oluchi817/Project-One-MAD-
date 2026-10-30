@@ -1,3 +1,6 @@
+// Root app shell & Navigation Bar - Festival Pocket
+// Marquez J (S1) & Oluchi C (S4, S5)
+
 import 'package:flutter/material.dart';
 import 'UI_screens/s1_catalog_dash.dart';
 import 'UI_screens/s4_history_insights.dart';
@@ -20,37 +23,37 @@ class FestivalPocketApp extends StatelessWidget {
         useMaterial3: true,
         scaffoldBackgroundColor: Colors.white,
 
-        // Custom palette: Orange base + soft yellow accents + bright red alerts
+        // Standard Flutter colors: orange primary, yellow accent, red error
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFFFF8A50), // Warm accent orange
-          primary: const Color(0xFFFF8A50),
-          secondary: const Color(0xFFFFF176), // Soft light yellow
-          error: const Color(0xFFFF1744),     // Bright red for delete/cancel alerts
+          seedColor: Colors.orange,
+          primary: Colors.orange,
+          secondary: Colors.yellow.shade200,
+          error: Colors.redAccent,
           surface: Colors.white,
         ),
 
-        // Clean white app bar with orange accent text & icons
-        appBarTheme: const AppBarTheme(
+        // Clean white app bar with orange text and icons
+        appBarTheme: AppBarTheme(
           backgroundColor: Colors.white,
-          foregroundColor: Color(0xFFE65100),
+          foregroundColor: Colors.orange.shade800,
           elevation: 0,
           scrolledUnderElevation: 1,
           centerTitle: true,
           titleTextStyle: TextStyle(
-            color: Color(0xFFE65100),
+            color: Colors.orange.shade800,
             fontSize: 20,
             fontWeight: FontWeight.bold,
           ),
         ),
 
-        // Crisp white cards with soft warm borders
+        // White cards with light orange borders
         cardTheme: CardTheme(
           color: Colors.white,
           elevation: 2,
-          shadowColor: const Color(0xFFFF8A50).withOpacity(0.12),
+          shadowColor: Colors.orange.withOpacity(0.15),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
-            side: BorderSide(color: Colors.orange.shade50),
+            side: BorderSide(color: Colors.orange.shade100),
           ),
         ),
       ),
@@ -85,23 +88,23 @@ class _MainNavigationShellState extends State<MainNavigationShell> {
       ),
       bottomNavigationBar: NavigationBar(
         backgroundColor: Colors.white,
-        indicatorColor: const Color(0xFFFFF9C4), // Soft light yellow active pill
+        indicatorColor: Colors.yellow.shade100, // Light yellow active indicator
         selectedIndex: _currentIndex,
         onDestinationSelected: (idx) => setState(() => _currentIndex = idx),
         destinations: const [
           NavigationDestination(
             icon: Icon(Icons.festival_outlined),
-            selectedIcon: Icon(Icons.festival, color: Color(0xFFFF8A50)),
+            selectedIcon: Icon(Icons.festival, color: Colors.orange),
             label: 'Catalog',
           ),
           NavigationDestination(
             icon: Icon(Icons.auto_stories_outlined),
-            selectedIcon: Icon(Icons.auto_stories, color: Color(0xFFFF8A50)),
+            selectedIcon: Icon(Icons.auto_stories, color: Colors.orange),
             label: 'History',
           ),
           NavigationDestination(
             icon: Icon(Icons.tune_outlined),
-            selectedIcon: Icon(Icons.tune, color: Color(0xFFFF8A50)),
+            selectedIcon: Icon(Icons.tune, color: Colors.orange),
             label: 'Settings',
           ),
         ],
