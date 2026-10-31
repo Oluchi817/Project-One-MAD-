@@ -1,11 +1,9 @@
 Festival Pocket
-
 A Flutter app for keeping track of festivals and events you want to go to. Save an event, tag it (Music, Tech, Art, Sports, Food), plan it, mark it attended, and leave yourself a short note.
 
 Project One for Mobile App Development. Marquez Johnson built S1, S2, S3 and the event store. Oluchi Chukwurah built S4 and S5.
 
 Where things stand
-
 All five screens and the bottom navigation work. Events are kept in memory (lib/data/event_store.dart), so nothing is saved when the app closes or the page reloads.
 
 Not built yet:
@@ -14,7 +12,6 @@ SQLite: sqflite isn't in pubspec.yaml. We could only run the app in Chrome, and 
 Saved settings: shared_preferences isn't in pubspec.yaml. Settings work on screen but aren't stored or used by other screens.
 Pocket Picks scoring: the History card shows sample text. The rules are in AI_Related/AI_Feature.md but aren't coded, and there is no Override button yet.
 Run it
-
 Needs Flutter with Dart 3.13.4 or newer. We have only tested on Chrome.
 
 bash
@@ -22,7 +19,6 @@ git clone https://github.com/Oluchi817/Project-One-MAD-.git
 cd Project-One-MAD-
 flutter pub get
 flutter run -d chrome
-
 The first Chrome launch can take about a minute. Run flutter doctor if something is missing.
 
 Using the app
@@ -42,7 +38,6 @@ AI_Related/                     AI_Feature.md and Ai_Use_Log.md
 Tests
 bash
 flutter test
-
 Two widget tests: the app opens on the empty Catalog, and saving an empty form shows the validation errors.
 
 Troubleshooting
