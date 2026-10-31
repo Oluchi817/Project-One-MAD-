@@ -9,7 +9,7 @@ class S5SettingsScreen extends StatefulWidget {
 
 class _S5SettingsScreenState extends State<S5SettingsScreen> {
   String _preferredTag = 'Tech';
-  double _groupSize = 3;
+  double _groupSize = 4;
 
   void _saveSettings() {
     
@@ -44,7 +44,7 @@ class _S5SettingsScreenState extends State<S5SettingsScreen> {
                   const Text('Used as your baseline for Pocket Picks (+2 pt bonus).', style: TextStyle(fontSize: 12, color: Colors.grey)),
                   const SizedBox(height: 10),
                   DropdownButtonFormField<String>(
-                    value: _preferredTag,
+                    initialValue: _preferredTag,
                     items: ['Music', 'Tech', 'Art', 'Sports', 'Food'].map((t) {
                       return DropdownMenuItem(value: t, child: Text(t));
                     }).toList(),
@@ -70,8 +70,8 @@ class _S5SettingsScreenState extends State<S5SettingsScreen> {
                   Slider(
                     value: _groupSize,
                     min: 1,
-                    max: 10,
-                    divisions: 9,
+                    max: 20,
+                    divisions: 19,
                     activeColor: const Color(0xFFFF8A50),
                     inactiveColor: const Color(0xFFFFF9C4),
                     label: _groupSize.round().toString(),
